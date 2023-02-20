@@ -1,8 +1,19 @@
+package calculation;
+
 import exceptions.BadFormatException;
 
 public class Calculator {
 
-    public Calculator() {
+    private static Calculator calculatorInstance;
+
+    private Calculator() {
+    }
+
+    public static Calculator getInstance(){
+        if(calculatorInstance == null){
+            calculatorInstance = new Calculator();
+        }
+        return calculatorInstance;
     }
 
     public Result doOperation(Operation operation) throws BadFormatException {

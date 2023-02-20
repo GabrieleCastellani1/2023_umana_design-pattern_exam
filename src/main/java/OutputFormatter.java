@@ -1,3 +1,5 @@
+import calculation.Result;
+
 import java.util.Iterator;
 
 public class OutputFormatter {

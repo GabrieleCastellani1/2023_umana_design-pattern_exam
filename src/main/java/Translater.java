@@ -1,4 +1,6 @@
 import exceptions.BadFormatException;
+import calculation.Operation;
+import calculation.OperationEnum;
 
 public class Translater {
 

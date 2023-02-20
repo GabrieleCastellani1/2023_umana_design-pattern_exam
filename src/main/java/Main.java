@@ -1,9 +1,10 @@
 import exceptions.BadFormatException;
+import calculation.Calculator;
 
 public class Main {
 
     public static void main(String[] args) {
-        Calculator calc = new Calculator();
+        Calculator calc = Calculator.getInstance();
         Translater translater = Translater.getInstance();
         OutputFormatter formatter = OutputFormatter.getInstance();
         String operation = args[0];

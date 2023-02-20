@@ -1,3 +1,5 @@
+package calculation;
+
 public class Operation {
     private final OperationEnum operation;
     private final Integer firstArgument;
