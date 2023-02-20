@@ -9,7 +9,7 @@ public class Result {
         this.resultArguments = Arrays.asList(arguments);
     }
 
-    public Iterator<Integer> resultIterator(){
+    public Iterator<Integer> resultIterator() {
         return this.resultArguments.iterator();
     }
 }
