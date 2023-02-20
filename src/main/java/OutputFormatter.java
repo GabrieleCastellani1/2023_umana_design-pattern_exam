@@ -45,7 +45,7 @@ public class OutputFormatter {
             return result;
         }else{
             while (i <= -12) {
-                result += 1;
+                result -= 1;
                 i += 12;
             }
             res = i;
@@ -64,7 +64,7 @@ public class OutputFormatter {
             return result;
         }else{
             while (i <= -240) {
-                result += 1;
+                result -= 1;
                 i += 240;
             }
             res = i;
