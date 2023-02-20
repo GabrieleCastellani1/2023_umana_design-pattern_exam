@@ -31,7 +31,11 @@ public class OutputFormatter {
             int pound = getPound(res);
             int shelling = getShelling(res);
             int pence = res;
-            return pound + "p " + shelling + "s " + pence + "d ";
+            if(pound < 0 || shelling < 0 || pence < 0){
+                return "(" + pound + "p " + shelling + "s " + pence + "d" + ")";
+            }else {
+                return pound + "p " + shelling + "s " + pence + "d ";
+            }
         } else {
             return "non è presente alcun risultato";
         }
