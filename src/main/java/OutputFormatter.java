@@ -3,16 +3,19 @@ import java.util.Iterator;
 public class OutputFormatter {
 
     private static OutputFormatter formatterInstance;
-    private OutputFormatter(){}
 
-    public static OutputFormatter getInstance(){
-        if(formatterInstance == null){
+    private OutputFormatter() {
+    }
+
+    public static OutputFormatter getInstance() {
+        if (formatterInstance == null) {
             formatterInstance = new OutputFormatter();
         }
         return formatterInstance;
     }
 
     private int res;
+
     public String formatResult(Result result) {
         Iterator<Integer> resultIterator = result.resultIterator();
         String first = findResult(resultIterator);
@@ -21,25 +24,25 @@ public class OutputFormatter {
     }
 
     private String findResult(Iterator<Integer> resultIterator) {
-        if(resultIterator.hasNext()){
+        if (resultIterator.hasNext()) {
             res = resultIterator.next();
             int pound = getPound(res);
             int shelling = getShelling(res);
             int pence = res;
             return pound + "p " + shelling + "s " + pence + "d ";
-        }else{
+        } else {
             return "non è presente alcun risultato";
         }
     }
 
     private String findRemainder(Iterator<Integer> resultIterator) {
-        if(resultIterator.hasNext()){
+        if (resultIterator.hasNext()) {
             res = resultIterator.next();
             int pound = getPound(res);
             int shelling = getShelling(res);
             int pence = res;
             return "(" + pound + "p " + shelling + "s " + pence + "d" + ")";
-        }else{
+        } else {
             return "";
         }
     }
@@ -53,7 +56,7 @@ public class OutputFormatter {
             }
             res = i;
             return result;
-        }else{
+        } else {
             while (i <= -12) {
                 result -= 1;
                 i += 12;
@@ -65,14 +68,14 @@ public class OutputFormatter {
 
     private int getPound(Integer i) {
         int result = 0;
-        if(i > 0){
+        if (i > 0) {
             while (i >= 240) {
                 result += 1;
                 i -= 240;
             }
             res = i;
             return result;
-        }else{
+        } else {
             while (i <= -240) {
                 result -= 1;
                 i += 240;

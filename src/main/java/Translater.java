@@ -4,10 +4,11 @@ public class Translater {
 
     private static Translater translaterInstance;
 
-    private Translater(){}
+    private Translater() {
+    }
 
-    public static Translater getInstance(){
-        if(translaterInstance == null){
+    public static Translater getInstance() {
+        if (translaterInstance == null) {
             translaterInstance = new Translater();
         }
         return translaterInstance;
