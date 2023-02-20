@@ -5,47 +5,70 @@ public class OutputFormatter {
     private int res;
     public String formatResult(Result result) {
         Iterator<Integer> resultIterator = result.resultIterator();
-        if (resultIterator.hasNext()) {
-            Integer firstResult = resultIterator.next();
-            res = firstResult;
+        String first = findResult(resultIterator);
+        String second = findRemainder(resultIterator);
+        return first + second;
+    }
+
+    private String findResult(Iterator<Integer> resultIterator) {
+        if(resultIterator.hasNext()){
+            res = resultIterator.next();
             int pound = getPound(res);
             int shelling = getShelling(res);
             int pence = res;
-            String firstOutput = pound + "p " + shelling + "s " + pence + "d ";
-            String secondOutput = "";
-
-            if (resultIterator.hasNext()) {
-                Integer remainder = resultIterator.next();
-                int poundRemainder = getPound(remainder);
-                int shellingRemainder = getShelling(remainder);
-                int penceRemainder = remainder;
-                secondOutput = "( " + poundRemainder + "p " + shellingRemainder + "s " + penceRemainder + "d" + " )";
-            }
-
-            return firstOutput + secondOutput;
-
-        } else {
+            return pound + "p " + shelling + "s " + pence + "d ";
+        }else{
             return "non è presente alcun risultato";
+        }
+    }
+
+    private String findRemainder(Iterator<Integer> resultIterator) {
+        if(resultIterator.hasNext()){
+            res = resultIterator.next();
+            int pound = getPound(res);
+            int shelling = getShelling(res);
+            int pence = res;
+            return "(" + pound + "p " + shelling + "s " + pence + "d" + ")";
+        }else{
+            return "";
         }
     }
 
     private int getShelling(Integer i) {
         int result = 0;
-        while (i >= 12) {
-            result += 1;
-            i -= 12;
+        if (i > 0) {
+            while (i >= 12) {
+                result += 1;
+                i -= 12;
+            }
+            res = i;
+            return result;
+        }else{
+            while (i <= -12) {
+                result += 1;
+                i += 12;
+            }
+            res = i;
+            return result;
         }
-        res = i;
-        return result;
     }
 
     private int getPound(Integer i) {
         int result = 0;
-        while (i >= 240) {
-            result += 1;
-            i -= 240;
+        if(i > 0){
+            while (i >= 240) {
+                result += 1;
+                i -= 240;
+            }
+            res = i;
+            return result;
+        }else{
+            while (i <= -240) {
+                result += 1;
+                i += 240;
+            }
+            res = i;
+            return result;
         }
-        res = i;
-        return result;
     }
 }
