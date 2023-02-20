@@ -2,18 +2,18 @@ import exceptions.BadFormatException;
 import calculation.Operation;
 import calculation.OperationEnum;
 
-public class Translater {
+public class InputTranslater {
 
-    private static Translater translaterInstance;
+    private static InputTranslater inputTranslaterInstance;
 
-    private Translater() {
+    private InputTranslater() {
     }
 
-    public static Translater getInstance() {
-        if (translaterInstance == null) {
-            translaterInstance = new Translater();
+    public static InputTranslater getInstance() {
+        if (inputTranslaterInstance == null) {
+            inputTranslaterInstance = new InputTranslater();
         }
-        return translaterInstance;
+        return inputTranslaterInstance;
     }
 
     public Operation translate(String input) throws BadFormatException {
