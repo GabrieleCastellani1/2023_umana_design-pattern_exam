@@ -2,6 +2,16 @@ import java.util.Iterator;
 
 public class OutputFormatter {
 
+    private static OutputFormatter formatterInstance;
+    private OutputFormatter(){}
+
+    public static OutputFormatter getInstance(){
+        if(formatterInstance == null){
+            formatterInstance = new OutputFormatter();
+        }
+        return formatterInstance;
+    }
+
     private int res;
     public String formatResult(Result result) {
         Iterator<Integer> resultIterator = result.resultIterator();

@@ -4,8 +4,8 @@ public class Main {
 
     public static void main(String[] args) {
         Calculator calc = new Calculator();
-        Translater translater = new Translater();
-        OutputFormatter formatter = new OutputFormatter();
+        Translater translater = Translater.getInstance();
+        OutputFormatter formatter = OutputFormatter.getInstance();
         String operation = args[0];
         try {
             String result = formatter.formatResult(calc.doOperation(translater.translate(operation)));

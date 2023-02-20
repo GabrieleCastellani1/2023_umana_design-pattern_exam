@@ -2,6 +2,17 @@ import exceptions.BadFormatException;
 
 public class Translater {
 
+    private static Translater translaterInstance;
+
+    private Translater(){}
+
+    public static Translater getInstance(){
+        if(translaterInstance == null){
+            translaterInstance = new Translater();
+        }
+        return translaterInstance;
+    }
+
     public Operation translate(String input) throws BadFormatException {
         OperationEnum operation;
         Integer first;
